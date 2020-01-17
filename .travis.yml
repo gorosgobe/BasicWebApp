@@ -2,3 +2,8 @@ language: java
 jdk:
 - openjdk8
 script: mvn clean verify
+deploy:
+  provider: heroku
+  app: basic-softeng-webapp
+  api_key:
+    secure: FBztqQuqhxVISncu7+DyhM9lo75Dp92Ek1wOx6jZ3UUoHHfSv+bbNh2dpey57Qe4oiizESTstCsOprS3DZ7vUO6z8E+SNqr9I+jXVz16qaO+Skl3+YS6Pj1Efr3oddPT3iCaAurMuvPHiTzGOZ2sb8wIjW2hyzXDy6czgwvuvMe01TZ/AeCSwqHJx0vUZa5Pzv17V2RQwclZ1m8dN/Lc696CxinSexkNUA1GtwFdVn77c3UoCeQsQivtgpHjQUg/46wHSpuLV/KRItOO/UhTvpi6hDpAHc29I+MVqVUN+N1vRRIWhVaFQyRXm3TyYP/NRHPT+IhLc+MvfAbnIDoAb8MO8XyGn9EOVw+SPFw0Q2C7nwGSYmB/EzMB/RNoEeqUvlsbC9cbE3dFStfj2+KwW0jufJEuLxTEg4aolg48SDyDfLcWIj/sYRjuE/bC2SnZclf3NxkA/fCdxbtJnjHFc9DRr/vSFdLP18YEwHh2ijwOOIqRR1vsAER4sIBZ3VHlv/Ly+nD8gHbaJyvAbZoVhE0KJZOrPcHXKD2imuOY3hx3RWTYttzXVZ1dbKr+TRrcEtma9/z99bZYfYT3/EUavVIFVqo84jFVOvLZOMM49aCKz84mVbEcmHlQ+nM5Bii8YQsow7SVz1g31AHrt41s7wUnWxDLsI9oqBKWJTJODME=

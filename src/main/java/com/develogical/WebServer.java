@@ -33,7 +33,7 @@ public class WebServer {
       String query = req.getParameter("q");
       if (query == null) {
         new IndexPage().writeTo(resp);
-      } else { 
+      } else {   
         new ResultsPage(query, new QueryProcessor().process(query)).writeTo(resp);
       }
     }

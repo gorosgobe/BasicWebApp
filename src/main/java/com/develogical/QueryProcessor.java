@@ -15,7 +15,11 @@ public class QueryProcessor {
         }
 
         try {
+
             String decoded = URLDecoder.decode(query, "UTF-8");
+            if (decoded.toLowerCase().contains("Eiffel")) {
+                return "Paris";
+            }
             Pattern plusNumbers = Pattern.compile("what is (?<num1>\\d+) plus (?<num2>\\d+)");
             Matcher m = plusNumbers.matcher(decoded);
             while (m.find()) {
@@ -25,9 +29,16 @@ public class QueryProcessor {
                 return (num1 + num2) + "";
             }
 
-            if (decoded.toLowerCase().contains("largest")) {
-
+            Pattern multiplyNumbers = Pattern.compile("what is (?<num1>\\d+) multiplied by (?<num2>\\d+)");
+            Matcher m2 = multiplyNumbers.matcher(decoded);
+            while (m2.find()) {
+                System.out.println("Num1 multiplied by num2");
+                int num1 = Integer.parseInt(m.group("num1"));
+                int num2 = Integer.parseInt(m.group("num2"));
+                return (num1 * num2) + "";
             }
+
+
 
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();

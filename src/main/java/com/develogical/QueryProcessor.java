@@ -2,14 +2,16 @@ package com.develogical;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class QueryProcessor {
 
     private int fibonacci(int i) {
-        if (i == 1 || i == 2) {
-            return i - 1;
+        if (i == 0 || i == 1) {
+            return i;
         }
 
         return fibonacci(i - 1) + fibonacci(i - 2);
@@ -65,16 +67,18 @@ public class QueryProcessor {
                 int res = fibonacci(num1);
                 return res + "";
             }
-//
-//            Pattern prime = Pattern.compile("which of the following numbers are primes: ((<num>\\d+),)*(())");
-//            Matcher fibonacciMatcher = fibonacci.matcher(decoded);
-//            while (fibonacciMatcher.find()) {
-//                System.out.println("Fibonacci");
-//                int num1 = Integer.parseInt(fibonacciMatcher.group("num1"));
-//                System.out.println("Fib num1");
-//                int res = fibonacci(num1);
-//                return res + "";
-//            }
+
+            Pattern prime = Pattern.compile("which of the following numbers are primes:( (<num>\\d+),)+|( (<num>\\d+))");
+            Matcher primeMatcher = prime.matcher(decoded);
+            List<Integer> primesToCheck = new ArrayList<>();
+            while (primeMatcher.find()) {
+                int num = Integer.parseInt(primeMatcher.group("num"));
+                primesToCheck.add(num);
+            }
+
+            if (!primesToCheck.isEmpty()) {
+                // check primes
+            }
 
 
             if (decoded.toLowerCase().contains("prime minister")) {

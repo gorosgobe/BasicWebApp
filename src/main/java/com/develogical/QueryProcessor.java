@@ -43,6 +43,16 @@ public class QueryProcessor {
             }
 
 
+            Pattern a = Pattern.compile("what is (?<num1>\\d+) multiplied by (?<num2>\\d+) plus (?<num3>\\d+)");
+            Matcher ab = a.matcher(decoded);
+            while (ab.find()) {
+                System.out.println("Num1 plus num2");
+                int num1 = Integer.parseInt(ab.group("num1"));
+                int num2 = Integer.parseInt(ab.group("num2"));
+                int num3 = Integer.parseInt(ab.group("num3"));
+                return (num1 * num2 + num3) + "";
+            }
+
             Pattern plusNumbers = Pattern.compile("what is (?<num1>\\d+) plus (?<num2>\\d+)");
             Matcher m = plusNumbers.matcher(decoded);
             while (m.find()) {

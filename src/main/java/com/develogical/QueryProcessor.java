@@ -1,5 +1,12 @@
 package com.develogical;
 
+import com.sun.tools.javac.util.ArrayUtils;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -9,12 +16,18 @@ public class QueryProcessor {
                     "writer in the English language and the world's pre-eminent dramatist.";
         }
 
-        if (query.toLowerCase().contains("hello")) {
-            return "How are you doing?";
-        }
+        try {
+            String decoded = URLDecoder.decode(query, "UTF-8");
+            Pattern plusNumbers = Pattern.compile("what is (?<num1>) plus (?<num2>)");
+            Matcher m = plusNumbers.matcher(decoded);
+            while (m.find()) {
+                int num1 = Integer.parseInt(m.group("num1"));
+                int num2 = Integer.parseInt(m.group("num2"));
+                return (num1 + num2) + "";
+            }
 
-        if (query.toLowerCase().contains("what is your team name")) {
-            return "Epple";
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
 
         return "";

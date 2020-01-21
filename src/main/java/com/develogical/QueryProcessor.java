@@ -31,6 +31,16 @@ public class QueryProcessor {
                 return "Paris";
             }
 
+            Pattern q = Pattern.compile("what is (?<num1>\\d+) plus (?<num2>\\d+) multiplied by (?<num3>\\d+)");
+            Matcher qb = q.matcher(decoded);
+            while (qb.find()) {
+                System.out.println("Num1 plus num2");
+                int num1 = Integer.parseInt(qb.group("num1"));
+                int num2 = Integer.parseInt(qb.group("num2"));
+                int num3 = Integer.parseInt(qb.group("num3"));
+                return (num1 + num2 * num3) + "";
+            }
+
 
             Pattern plusNumbers2 = Pattern.compile("what is (?<num1>\\d+) plus (?<num2>\\d+) plus (?<num3>\\d+)");
             Matcher mplusNumbers2 = plusNumbers2.matcher(decoded);

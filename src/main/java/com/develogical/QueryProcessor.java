@@ -48,6 +48,14 @@ public class QueryProcessor {
                 return (num1 - num2) + "";
             }
 
+            if (decoded.toLowerCase().contains("prime minister")) {
+                return "2016";
+            }
+
+            if (decoded.toLowerCase().contains("banana")) {
+                return "yellow";
+            }
+
 
 
         } catch (UnsupportedEncodingException e) {

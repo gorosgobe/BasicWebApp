@@ -39,6 +39,15 @@ public class QueryProcessor {
                 return (num1 * num2) + "";
             }
 
+            Pattern minusNumbers = Pattern.compile("what is (?<num1>\\d+) minus (?<num2>\\d+)");
+            Matcher m3 = minusNumbers.matcher(decoded);
+            while (m3.find()) {
+                System.out.println("Num1 minus num2");
+                int num1 = Integer.parseInt(m3.group("num1"));
+                int num2 = Integer.parseInt(m3.group("num2"));
+                return (num1 - num2) + "";
+            }
+
 
 
         } catch (UnsupportedEncodingException e) {

@@ -7,6 +7,14 @@ import java.util.regex.Pattern;
 
 public class QueryProcessor {
 
+    private int fibonacci(int i) {
+        if (i == 1 || i == 2) {
+            return i - 1;
+        }
+
+        return fibonacci(i - 1) + fibonacci(i - 2);
+    }
+
     public String process(String query) {
         if (query.toLowerCase().contains("shakespeare")) {
             return "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
@@ -47,6 +55,17 @@ public class QueryProcessor {
                 int num2 = Integer.parseInt(m3.group("num2"));
                 return (num1 - num2) + "";
             }
+
+            Pattern fibonacci = Pattern.compile("what is the (?<num1>\\d+)th in the Fibonacci sequence");
+            Matcher fibonacciMatcher = fibonacci.matcher(decoded);
+            while (fibonacciMatcher.find()) {
+                System.out.println("Fibonacci");
+                int num1 = Integer.parseInt(fibonacciMatcher.group("num1"));
+                System.out.println("Fib num1");
+                int res = fibonacci(num1);
+                return res + "";
+            }
+
 
             if (decoded.toLowerCase().contains("prime minister")) {
                 return "2016";

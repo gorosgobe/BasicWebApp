@@ -16,9 +16,10 @@ public class QueryProcessor {
 
         try {
             String decoded = URLDecoder.decode(query, "UTF-8");
-            Pattern plusNumbers = Pattern.compile("what is (?<num1>) plus (?<num2>)");
+            Pattern plusNumbers = Pattern.compile("what is (?<num1>\\d+) plus (?<num2>\\d+)");
             Matcher m = plusNumbers.matcher(decoded);
             while (m.find()) {
+                System.out.println("Num1 plus num2");
                 int num1 = Integer.parseInt(m.group("num1"));
                 int num2 = Integer.parseInt(m.group("num2"));
                 return (num1 + num2) + "";

@@ -25,6 +25,10 @@ public class QueryProcessor {
                 return (num1 + num2) + "";
             }
 
+            if (decoded.toLowerCase().contains("largest")) {
+
+            }
+
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

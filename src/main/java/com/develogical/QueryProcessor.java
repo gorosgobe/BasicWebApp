@@ -80,7 +80,7 @@ public class QueryProcessor {
                 return (num1 - num2) + "";
             }
 
-            Pattern fibonacci = Pattern.compile("what is the (?<num1>\\d+)th number in the Fibonacci sequence");
+            Pattern fibonacci = Pattern.compile("what is the (?<num1>\\d+)(th|nd|st) number in the Fibonacci sequence");
             Matcher fibonacciMatcher = fibonacci.matcher(decoded);
             while (fibonacciMatcher.find()) {
                 System.out.println("Fibonacci");

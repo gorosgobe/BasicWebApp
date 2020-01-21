@@ -30,4 +30,9 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("e8d502f0: what is 10 plus 1"), containsString("11"));
     }
 
+    @Test
+    public void multiplyNumbers() throws Exception {
+        assertThat(queryProcessor.process("e8d502f0: what is 10 multiplied by 12"), containsString("120"));
+    }
+
 }

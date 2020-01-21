@@ -17,9 +17,10 @@ public class QueryProcessor {
         try {
 
             String decoded = URLDecoder.decode(query, "UTF-8");
-            if (decoded.toLowerCase().contains("Eiffel")) {
+            if (decoded.toLowerCase().contains("eiffel")) {
                 return "Paris";
             }
+
             Pattern plusNumbers = Pattern.compile("what is (?<num1>\\d+) plus (?<num2>\\d+)");
             Matcher m = plusNumbers.matcher(decoded);
             while (m.find()) {
@@ -33,8 +34,8 @@ public class QueryProcessor {
             Matcher m2 = multiplyNumbers.matcher(decoded);
             while (m2.find()) {
                 System.out.println("Num1 multiplied by num2");
-                int num1 = Integer.parseInt(m.group("num1"));
-                int num2 = Integer.parseInt(m.group("num2"));
+                int num1 = Integer.parseInt(m2.group("num1"));
+                int num2 = Integer.parseInt(m2.group("num2"));
                 return (num1 * num2) + "";
             }
 

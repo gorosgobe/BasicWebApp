@@ -56,7 +56,7 @@ public class QueryProcessor {
                 return (num1 - num2) + "";
             }
 
-            Pattern fibonacci = Pattern.compile("what is the (?<num1>\\d+)th in the Fibonacci sequence");
+            Pattern fibonacci = Pattern.compile("what is the (?<num1>\\d+)th number in the Fibonacci sequence");
             Matcher fibonacciMatcher = fibonacci.matcher(decoded);
             while (fibonacciMatcher.find()) {
                 System.out.println("Fibonacci");
@@ -65,6 +65,16 @@ public class QueryProcessor {
                 int res = fibonacci(num1);
                 return res + "";
             }
+//
+//            Pattern prime = Pattern.compile("which of the following numbers are primes: ((<num>\\d+),)*(())");
+//            Matcher fibonacciMatcher = fibonacci.matcher(decoded);
+//            while (fibonacciMatcher.find()) {
+//                System.out.println("Fibonacci");
+//                int num1 = Integer.parseInt(fibonacciMatcher.group("num1"));
+//                System.out.println("Fib num1");
+//                int res = fibonacci(num1);
+//                return res + "";
+//            }
 
 
             if (decoded.toLowerCase().contains("prime minister")) {
